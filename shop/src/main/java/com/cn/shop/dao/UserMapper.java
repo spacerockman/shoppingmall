@@ -1,4 +1,4 @@
-package com.cn.shop.mapping;
+package com.cn.shop.dao;
 
 import com.cn.shop.pojo.User;
 
