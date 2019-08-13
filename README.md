@@ -98,7 +98,9 @@ A shopping mall project for practicing
   
   
   ### 4.2.3、configurate the [Log4j.properties](https://github.com/spacerockman/shoppingmall/blob/master/shop/src/main/resources/log4j.properties)
-     
+  
+  *the structure of resources
+     ![resources](https://github.com/spacerockman/shoppingmall/blob/master/shop/imgs/log4j.png)
   ### 4.2.4、JUnit Test
     create a testing table
     DROP TABLE IF EXISTS `user_t`;
