@@ -37,25 +37,27 @@ A shopping mall project for practicing
 
 
   ### 4.2.2 create the configuration of [spring-mybatis.xml](https://github.com/spacerockman/shoppingmall/blob/master/shop/src/main/resources/spring-mybatis.xml)
-  
-      <?xml version="1.0" encoding="UTF-8"?>
-    <beans xmlns="http://www.springframework.org/schema/beans"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-      xmlns:context="http://www.springframework.org/schema/context"
-      xmlns:mvc="http://www.springframework.org/schema/mvc"
-      xsi:schemaLocation="http://www.springframework.org/schema/beans  
-                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
-                            http://www.springframework.org/schema/context  
-                            http://www.springframework.org/schema/context/spring-context-3.1.xsd  
-                            http://www.springframework.org/schema/mvc  
-                            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
-      <!-- 自动扫描 -->
-      <context:component-scan base-package="com.cn.shop" />
-      <!-- 引入配置文件 -->
-      <bean id="propertyConfigurer"
-        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties" />
-      </bean>
+  <details>
+<summary>spring-mybatis.xml</summary>
+
+	 <?xml version="1.0" encoding="UTF-8"?>
+	    <beans xmlns="http://www.springframework.org/schema/beans"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	      xmlns:context="http://www.springframework.org/schema/context"
+	      xmlns:mvc="http://www.springframework.org/schema/mvc"
+	      xsi:schemaLocation="http://www.springframework.org/schema/beans  
+				    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+				    http://www.springframework.org/schema/context  
+				    http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+				    http://www.springframework.org/schema/mvc  
+				    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	      <!-- 自动扫描 -->
+	      <context:component-scan base-package="com.cn.shop" />
+	      <!-- 引入配置文件 -->
+	      <bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	      </bean>
  
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -94,6 +96,8 @@ A shopping mall project for practicing
 		<property name="dataSource" ref="dataSource" />
 	</bean>
     </beans>
+</details>
+     
   
   
   
@@ -102,37 +106,47 @@ A shopping mall project for practicing
   *the structure of resources
      ![resources](https://github.com/spacerockman/shoppingmall/blob/master/shop/imgs/log4j.png)
   ### 4.2.4、JUnit Test
-    create a testing table
-    DROP TABLE IF EXISTS `user_t`;
-    CREATE TABLE `user_t` (
-     `id` int(11) NOT NULL AUTO_INCREMENT,
-     `user_name` varchar(40) NOT NULL,
-      `password` varchar(255) NOT NULL,
-     `age` int(4) NOT NULL,
-     PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  <details>
+<summary> create a testing table</summary>
+
+	 DROP TABLE IF EXISTS `user_t`;
+	    CREATE TABLE `user_t` (
+	     `id` int(11) NOT NULL AUTO_INCREMENT,
+	     `user_name` varchar(40) NOT NULL,
+	      `password` varchar(255) NOT NULL,
+	     `age` int(4) NOT NULL,
+	     PRIMARY KEY (`id`)
+	    ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
  
     /*Data for the table `user_t` */
  
     insert  into `user_t`(`id`,`user_name`,`password`,`age`) values (1,'测试','test',24);
+</details>
+   
+   
   ### 4.2.4.2  use the tool --MyBatis Generator to create class automatically [steps](https://blog.csdn.net/cllaure/article/details/81483858)
   ![generator](https://github.com/spacerockman/shoppingmall/blob/master/shop/imgs/generator.png)
   
   ### 4.2.4.3  Service and ServiceImpl
   ![serviceandserviceimpl](https://github.com/spacerockman/shoppingmall/blob/master/shop/imgs/serviceandserviceimpl.png)
   
-  **UserService.java**
-  
-      package com.cn.shop.service;
+  <details>
+<summary>UserService.java</summary>
+
+	package com.cn.shop.service;
   
         import com.cn.shop.pojo.User;
 
         public interface IUserService {
           public User getUserById(int userId);
         }
+</details>
+      
         
-   **UserServiceImpl.java**
-   
+  
+   <details>
+<summary>UserServiceImpl.java</summary>
+
     package com.cn.shop.service.impl;
  
     import javax.annotation.Resource;
@@ -154,7 +168,11 @@ A shopping mall project for practicing
       }
 
     }
+</details>
+   
 ### 4.2.4.4、JunitTest.java
+<details>
+<summary>JunitTest.java</summary>
 
     package org.zsl.testmybatis;
 
@@ -189,7 +207,9 @@ A shopping mall project for practicing
 		// logger.info("value："+user.getUserName());
 		logger.info(JSON.toJSONString(user));
 	}
-}
+	}
+</details>
+   
 
 ### 4.3  join **SpringMVC**
 
@@ -212,6 +232,10 @@ A shopping mall project for practicing
     </html>
     
  #### 4.3.3.2 UserController.java
+ 
+ <details>
+<summary>UserController.java</summary>
+
     package com.cn.shop.controller;
 
     import javax.annotation.Resource;
@@ -238,6 +262,9 @@ A shopping mall project for practicing
         return "showUser";
       }
     }
+</details>
+ 
+    
   
   #### 4.3.3.3 Test
     localhost:8080/shop/user/showUser?id=1
