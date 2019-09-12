@@ -1,7 +1,7 @@
 # shoppingmall
 A shopping mall project for practicing
 
-## 1.Three concept you need to know
+## 1.Three concepts you need to know
 **Spring**
 **SpringMVC**
 **Mybatis**
